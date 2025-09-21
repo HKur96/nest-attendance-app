@@ -1,5 +1,10 @@
-import { UserEntity } from '../entities/user.entity';
+import { CreateUserDto } from '@/user/domains/dtos/createUser.dto';
+import { SignInUserDto } from '../dtos/signInUser.dto';
+import { SignInResponse, SignUpResponse } from '../responses/user.response';
+import { ApiResponse } from '@/utils/api.response';
 
 export interface UserRepositoryInterface {
-  create(user: UserEntity): Promise<void>;
+  signUp(user: CreateUserDto): Promise<ApiResponse<SignUpResponse>>;
+
+  signIn(user: SignInUserDto): Promise<ApiResponse<SignInResponse>>;
 }

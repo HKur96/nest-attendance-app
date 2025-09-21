@@ -1,14 +1,28 @@
-import { Controller, Post, Body, Get } from '@nestjs/common';
-import { CreateUserUseCase } from '../../data/use-cases/createUser.usecase';
-import { CreateUserDto } from 'src/user/dtos/createUser.dto';
+import { Controller, Post, Body } from '@nestjs/common';
+import { UserUseCase } from '../../data/use-cases/user.usecase';
+import { CreateUserDto } from '@/user/domains/dtos/createUser.dto';
+import { SignInUserDto } from '@/user/domains/dtos/signInUser.dto';
+import {
+  SignInResponse,
+  SignUpResponse,
+} from '@/user/domains/responses/user.response';
+import { ApiResponse } from '@/utils/api.response';
 
 @Controller('users')
 export class UserController {
-  constructor(private readonly createUserUseCase: CreateUserUseCase) {}
+  constructor(private readonly userUseCase: UserUseCase) {}
 
-  @Post()
-  async createUser(@Body() createUserDto: CreateUserDto): Promise<void> {
-    const { name, email, password } = createUserDto;
-    await this.createUserUseCase.execute({ name, email, password });
+  @Post('/sign-up')
+  async signUpUser(
+    @Body() body: CreateUserDto,
+  ): Promise<ApiResponse<SignUpResponse>> {
+    return await this.userUseCase.signUp(body);
+  }
+
+  @Post('/sign-in')
+  async signInUser(
+    @Body() body: SignInUserDto,
+  ): Promise<ApiResponse<SignInResponse>> {
+    return await this.userUseCase.signIn(body);
   }
 }
