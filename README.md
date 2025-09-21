@@ -28,3 +28,22 @@ It supports authentication, city/building management, and attendance tracking.
 ---
 
 ## 📂 Project Structure
+```bash
+attendance-app/
+├─ src/
+│  ├─ infra/        # Prisma Service
+│  ├─ user/         # Authentication (JWT)
+│  ├─ city/         # City CRUD
+│  ├─ building/     # Building CRUD (with lat/long)
+│  ├─ attendance/   # Check-in / Check-out
+│  ├─ utils/        # Guards, Filters, Utils
+│  └─ main.ts       # App entry point
+├─ prisma/
+│  ├─ schema.prisma # Database schema
+│  └─ seed.ts       # Sample seeding (optional)
+├─ .env.example     # Environment variables template
+└─ README.md
+
+--- 
+
+📜 License MIT © 2025 Hari Kurniawan
