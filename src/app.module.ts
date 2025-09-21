@@ -3,10 +3,12 @@ import { UserModule } from './user/user.module';
 import { PrismaModule } from './infra/config/prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
+import { CityModule } from './city/city.module';
 
 @Module({
   imports: [
     UserModule,
+    CityModule,
     PrismaModule,
     ConfigModule.forRoot({
       isGlobal: true,

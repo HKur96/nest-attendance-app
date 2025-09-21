@@ -2,9 +2,9 @@
 export class ApiResponse<T = any> {
   success: boolean;
   message: string;
-  data?: T;
   status_code: number;   // <-- snake_case
   timestamp: string;
+  data?: T;
 
   constructor(
     message: string,
@@ -16,9 +16,9 @@ export class ApiResponse<T = any> {
   ) {
     this.success = options.success ?? true;
     this.message = message;
-    this.data = options.data;
     this.status_code = options.status_code ?? 200;
     this.timestamp = new Date().toISOString();
+    this.data = options.data;
   }
 
   static success<T>(message: string, data?: T, status_code = 200) {

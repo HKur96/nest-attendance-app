@@ -63,7 +63,7 @@ export class UserRepository implements UserRepositoryInterface {
         }),
       );
     } catch (err) {
-      throw err;
+      return ApiResponse.error('Unexpected error');
     }
   }
 
@@ -106,7 +106,7 @@ export class UserRepository implements UserRepositoryInterface {
         }),
       );
     } catch (error) {
-      throw error;
+      return ApiResponse.error('Unexpected error');
     }
   }
 }
