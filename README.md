@@ -43,6 +43,7 @@ attendance-app/
 │  └─ seed.ts       # Sample seeding (optional)
 ├─ .env.example     # Environment variables template
 └─ README.md
+```
 
 --- 
 
