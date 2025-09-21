@@ -28,6 +28,7 @@ It supports authentication, city/building management, and attendance tracking.
 ---
 
 ## 📂 Project Structure
+```bash
 attendance-app/
 ├─ src/
 | ├─ infra/ # Prisma Service
@@ -42,6 +43,7 @@ attendance-app/
 │ └─ seed.ts # Sample seeding (optional)
 ├─ .env.example # Environment variables template
 └─ README.md
+```
 
 ---
 
